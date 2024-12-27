@@ -1,0 +1,44 @@
+
+syntax = "proto3";
+
+package test;
+
+service OrderService {
+    rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse) {};
+    rpc FindAllOrders(FindAllOrdersRequest) returns (FindAllOrdersResponse) {};
+    rpc FindOneOrder(FindOneOrderRequest) returns (FindOneOrderResponse) {};
+}
+
+message CreateOrderRequest {
+    string account_id = 1;
+    string asset_id = 2;
+    int32  quantity = 3;
+}
+
+message Order {
+    string order_id = 1;
+    string account_id = 2;
+    string asset_id = 3;
+    int32 quantity = 4;
+    string status = 5;
+}
+
+message CreateOrderResponse {
+    Order order = 1;
+}
+
+message FindAllOrdersRequest {
+    string account_id = 1;
+}
+
+message FindAllOrdersResponse {
+    repeated Order orders = 1;
+}
+
+message FindOneOrderRequest {
+    string order_id = 1;
+}
+
+message FindOneOrderResponse {
+    Order order = 1;
+}

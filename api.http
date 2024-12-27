@@ -1,0 +1,15 @@
+###
+GET http://localhost:3000/orders?account_id=1234
+
+###
+GET http://localhost:3000/orders/676f00f09531c49a909c5ff8
+
+###
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "account_id": 1234,
+  "asset_id": "test",
+  "quantity": 100
+}
